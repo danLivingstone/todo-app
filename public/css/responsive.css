@@ -1,0 +1,24 @@
+/* RESPONSIVE STYLES */
+
+@media only screen and (max-width: 615px) {
+    .actions__container {
+        padding: 0 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 382px) {
+    .actions__container {
+        display: block;
+    }
+    
+    .checkbox {
+        display: block;
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (max-width: 313px) {
+    #add-to-do {
+        margin-top: 1rem;
+    }
+}
