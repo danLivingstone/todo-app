@@ -4,21 +4,21 @@ let todos = [];
 
 // Fetch existing todos from localStorage
 const loadTodos = () => {
-    // retrieve data from localStorage
-    const todosJSON = localStorage.getItem('todos');
-    // if there is data found, parse it into an object and add it to the todos array
+  // retrieve data from localStorage
+  const todosJSON = localStorage.getItem('todos');
+  // if there is data found, parse it into an object and add it to the todos array
 
-    try {
-        todos = todosJSON ? JSON.parse(todosJSON) : [];
-    } catch (exception) {
-        todos = [];
-    };
+  try {
+    todos = todosJSON ? JSON.parse(todosJSON) : [];
+  } catch (exception) {
+    todos = [];
+  }
 };
 
 // Save todos to localStorage
 const saveTodos = () => {
-    // Set localStorage to save the users new todo
-    localStorage.setItem('todos', JSON.stringify(todos));
+  // Set localStorage to save the users new todo
+  localStorage.setItem('todos', JSON.stringify(todos));
 };
 
 // Todos accessor
@@ -26,33 +26,33 @@ const getTodos = () => todos;
 
 // Create a todo
 const createTodo = (text) => {
-        // push new todo object to the todos array
-        todos.push({
-            id: uuidv4(),
-            text: text,
-            completed: false
-        });
-        saveTodos();
+  // push new todo object to the todos array
+  todos.push({
+    id: uuidv4(),
+    text: text,
+    completed: false
+  });
+  saveTodos();
 };
 
 // Remove a todo
 const removeTodo = (id) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
+  const todoIndex = todos.findIndex((todo) => todo.id === id);
 
-    if (todoIndex > -1) {
-        todos.splice(todoIndex, 1);
-        saveTodos();
-    };
+  if (todoIndex > -1) {
+    todos.splice(todoIndex, 1);
+    saveTodos();
+  }
 };
 
 // Toggle the completed value for a given todo
 const toggleTodo = (id) => {
-    const todo = todos.find((todo) => todo.id === id);
+  const todo = todos.find((todo) => todo.id === id);
 
-    if (todo) {
-        todo.completed = !todo.completed;
-        saveTodos();
-    };
+  if (todo) {
+    todo.completed = !todo.completed;
+    saveTodos();
+  }
 };
 
 // Populate todos array
